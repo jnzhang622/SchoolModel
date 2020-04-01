@@ -1,7 +1,9 @@
 class School < ActiveRecord::Base
     has_many :janitors
+    has_many :janitormops, through: :janitors
     has_many :teachers
     has_many :students
+    has_many :studentsubjects, through: :students
 
     def janitor_count
         self.janitors.count
@@ -22,6 +24,6 @@ class School < ActiveRecord::Base
         self.students.map(&:name)
     end
     def all_subject_names
-        self.subjects.map(&:name).uniq
+        self.studentsubjects.map do |t| t.subject end
     end
 end
