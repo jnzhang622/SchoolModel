@@ -1,4 +1,5 @@
 class Janitor < ActiveRecord::Base
-    has_many :janitormops
     belongs_to :school
+    has_many :janitormops
+    has_many :mops, through: :janitormops
 end
