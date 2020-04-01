@@ -21,4 +21,7 @@ class School < ActiveRecord::Base
     def all_student_names
         self.students.map(&:name)
     end
+    def all_subject_names
+        self.subjects.map(&:name).uniq
+    end
 end
