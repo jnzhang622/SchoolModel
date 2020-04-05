@@ -24,6 +24,7 @@ class School < ActiveRecord::Base
         self.students.map(&:name)
     end
     def all_subject_names
-        self.studentsubjects.map do |t| t.subject end
+        self.studentsubjects.map {|t| t.subject}.uniq
     end
+    
 end

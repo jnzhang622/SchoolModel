@@ -3,6 +3,4 @@ class Student < ActiveRecord::Base
     has_many :studentsubjects
     has_many :subjects, through: :studentsubjects
 
-    
-
 end
