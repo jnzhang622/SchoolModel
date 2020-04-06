@@ -15,7 +15,7 @@ class Janitor < ActiveRecord::Base
         self.all.map {|t| t.my_floors_count}
     end
 
-    def janitor_max_shininess
+    def shiniest_floor
         self.mops.map {|t| t.floors}.flatten.map {|t| t.shininess}.max
     end
 

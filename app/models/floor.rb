@@ -7,7 +7,15 @@ class Floor < ActiveRecord::Base
     end
     
     def self.shiniest_floor
-      self.where("shininess = ?", self.shiniest_rating)
+      self.where(:shininess => Floor.shiniest_rating)
       #Floor.all.find do |t| t.flr if t.shininess == maximum end
+    end
+
+    def self.dullest_rating
+      self.minimum(:shininess)
+    end
+
+    def self.dullest_floor
+      self.where(:shininess => Floor.dullest_rating)
     end
 end
