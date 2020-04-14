@@ -10,53 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 10) do
+ActiveRecord::Schema.define(version: 5) do
 
-  create_table "floors", force: :cascade do |t|
-    t.string "flr"
-    t.integer "shininess"
-  end
-
-  create_table "janitormops", force: :cascade do |t|
-    t.integer "janitor_id"
-    t.integer "mop_id"
-  end
-
-  create_table "janitors", force: :cascade do |t|
+  create_table "abilities", force: :cascade do |t|
+    t.integer "pokemon_id"
     t.string "name"
-    t.integer "school_id"
+    t.string "description"
   end
 
-  create_table "mopfloors", force: :cascade do |t|
-    t.integer "mop_id"
-    t.integer "floor_id"
+  create_table "attacks", force: :cascade do |t|
+    t.integer "pokemon_id"
+    t.string "name"
+    t.string "atk_type"
+    t.integer "power"
+    t.string "description"
   end
 
-  create_table "mops", force: :cascade do |t|
-    t.string "brand"
+  create_table "helditems", force: :cascade do |t|
+    t.integer "pokemon_id"
+    t.string "name"
+    t.string "description"
   end
 
-  create_table "schools", force: :cascade do |t|
+  create_table "pokemons", force: :cascade do |t|
+    t.integer "team_id"
+    t.string "species"
     t.string "name"
   end
 
-  create_table "students", force: :cascade do |t|
+  create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.integer "school_id"
-  end
-
-  create_table "studentsubjects", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "subject_id"
-  end
-
-  create_table "subjects", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.integer "school_id"
   end
 
 end
